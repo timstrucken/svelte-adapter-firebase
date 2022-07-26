@@ -5,6 +5,7 @@ on:
     branches:
       - main
   pull_request:
+  workflow_dispatch:
 
 env:
   CI: true
@@ -29,22 +30,22 @@ jobs:
       matrix:
         params:
           - {
-              test_dir: "functions_single_site",
-              validation_app_dir: "public/_app/immutable/pages/index.svelte-*.js",
-              validation_compute_dir: "functions/sveltekit/index.js",
-              nested_dir: ".",
+              test_dir: 'functions_single_site',
+              validation_app_dir: 'public/_app/immutable/pages/index.svelte-*.js',
+              validation_compute_dir: 'functions/sveltekit/index.js',
+              nested_dir: '.',
             }
           - {
-              test_dir: "nested_app_dirs",
-              validation_app_dir: "public/_app/immutable/pages/index.svelte-*.js",
-              validation_compute_dir: "functions/sveltekit/index.js",
-              nested_dir: "app",
+              test_dir: 'nested_app_dirs',
+              validation_app_dir: 'public/_app/immutable/pages/index.svelte-*.js',
+              validation_compute_dir: 'functions/sveltekit/index.js',
+              nested_dir: 'app',
             }
           - {
-              test_dir: "run_service_id",
-              validation_app_dir: "public/_app/immutable/pages/index.svelte-*.js",
-              validation_compute_dir: "functions/cloudrun/index.js",
-              nested_dir: ".",
+              test_dir: 'run_service_id',
+              validation_app_dir: 'public/_app/immutable/pages/index.svelte-*.js',
+              validation_compute_dir: 'functions/cloudrun/index.js',
+              nested_dir: '.',
             }
     steps:
       - uses: actions/checkout@v2
